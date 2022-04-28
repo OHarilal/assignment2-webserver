@@ -2,7 +2,7 @@
 from socket import *
 # In order to terminate the program
 import sys
-from socket import *
+
 
 def webServer(port=13331):
   serverSocket = socket(AF_INET, SOCK_STREAM)
@@ -40,7 +40,7 @@ def webServer(port=13331):
       except IOError:
         # Send response message for file not found (404)
         #Fill in start
-        connectionSocket.send("\nHTTP/1.1 404 File Not Found\n")
+        connectionSocket.send("\n404 File Not Found\n")
         #Fill in end
         connectionSocket.send("<html><head><body><h1><404 Not Found</h1></body></html>\r\n")
 
