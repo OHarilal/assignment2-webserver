@@ -7,7 +7,7 @@ import sys
 def webServer(port=13331):
   serverSocket = socket(AF_INET, SOCK_STREAM)
   #Prepare a server socket
-  serverSocket.bind(("192.168.1.8", port))
+  serverSocket.bind(("", port))
   #Fill in start
   serverSocket.listen(1)
   #Fill in end
@@ -19,8 +19,7 @@ def webServer(port=13331):
     try:
 
       try:
-        message = connectionSocket.recv(1024)
-        #Fill in start    #Fill in end
+        message = connectionSocket.recv(1024)#Fill in start    #Fill in end
         filename = message.split()[1]
         f = open(filename[1:])
         outputdata = f.read() #Fill in start     #Fill in end
