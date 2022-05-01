@@ -14,13 +14,14 @@ def webServer(port=13331):
 
   while True:
     #Establish the connection
-    #print('Ready to serve...')
+    print('Ready to serve...')
     connectionSocket, addr = serverSocket.accept()#Fill in start      #Fill in end
     try:
 
       try:
         message = connectionSocket.recv(1024)#Fill in start    #Fill in end
         filename = message.split()[1]
+        print "File name is"; filename
         f = open(filename[1:])
         outputdata = f.read() #Fill in start     #Fill in end
         
@@ -50,8 +51,8 @@ def webServer(port=13331):
     except (ConnectionResetError, BrokenPipeError):
       pass
 
-    serverSocket.close()
-    sys.exit()  # Terminate the program after sending the corresponding data
+  serverSocket.close()
+  sys.exit()  # Terminate the program after sending the corresponding data
 
 if __name__ == "__main__":
   webServer(13331)
